@@ -5,13 +5,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-div.saludos {
+div.welcome {
   display: flex;
   flex-direction: column;
   border: 2px solid #ff8c00;
+  max-width: 50%;
 }
 
-div.saludos h1 {
+div.welcome h1 {
   padding: 1rem;
   padding-left: 4rem;
   background: #ff8c00 url(/restaurant/assets/images/logo-white.png) no-repeat center left 0.5rem/3rem;
@@ -19,7 +20,34 @@ div.saludos h1 {
   margin: 0;
 }
 
-div.saludos p {
+div.welcome p {
   font-size: 1.1rem;
   padding: 1rem;
+}
+
+div.welcome small {
+  padding: 1rem;
+}
+
+div.lost {
+  display: flex;
+  column-gap: 2rem;
+  padding: 2rem;
+  border: 2px solid #ff8c00;
+}
+
+div.lost div.list-img {
+  height: 10rem;
+  width: 10rem;
+  background: url(/restaurant/assets/images/not-found.png) no-repeat center/contain;
+}
+
+div.lost div.lost-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+div.lost div.lost-txt a {
+  align-self: center;
 }

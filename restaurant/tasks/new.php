@@ -10,24 +10,23 @@ if ($argc == 1) {
   TerminalOutput::println("{{gray|  > Creating directory structure...}}");
   mkdir("app");
   mkdir("app/assets");
+  mkdir("app/public");
   mkdir("app/assets/stylesheets");
   mkdir("app/models");
   mkdir("app/views");
-  mkdir("app/views/home");
   mkdir("app/controllers");
 
-  TerminalOutput::println("{{gray|  > Copying application root file...}}");
-  copy('restaurant/templates/index.php', 'index.php');
-
-  TerminalOutput::println("{{gray|  > Copying base stylesheet...}}");
+  TerminalOutput::println("{{gray|  > Generating sample static pages...}}");
   copy('restaurant/templates/styles.css', 'app/assets/stylesheets/styles.css');
-
-  TerminalOutput::println("{{gray|  > Generating landing page...}}");
   $html = strtr(
     file_get_contents('restaurant/templates/index.html'), 
     array('{{application}}' => $app_name)
   );
-  file_put_contents('app/views/home/index.php', $html);
+  file_put_contents('app/public/index.html', $html);
+  copy('restaurant/templates/about.html', 'app/public/about.html');
+
+  TerminalOutput::println("{{gray|  > Generating sample 404 page...}}");
+  copy('restaurant/templates/404.html', 'app/public/404.html');
 
   TerminalOutput::println("\n{{cyan|$app_name}}'s scaffolding has been created. Thanks for using {{yellow|RESTaurant!}}");
 }
